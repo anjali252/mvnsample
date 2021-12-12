@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="CustomSuite">
+	<test thread-count="5" name="ModuleOneTest">
+		<groups>
+			<define name="regressionOne">
+				<include name="featureOne"></include>
+				<include name="featureTwo"></include>
+			</define>
+			<define name="regressionTwo">
+				<include name="featureThree"></include>
+			</define>
+			<run>
+				<!-- we have used exclude few test case (tc02) by writing their name 
+					in running XML. In final result mentioned test cases did not run. -->
+				<!-- <exclude name="featureTwo"></exclude> -->
+
+				<include name="featureOne"></include>
+				<include name="featureTwo"></include>
+				<!--<include name="regressionOne"></include>-->
+			</run>
+		</groups>
+		<classes>
+			<class name="testscripts.GroupTest" />
+			<!-- <class name="testscripts.GroupTestTwo" />  -->
+		</classes>
+	</test> <!-- ModuleOneTest -->
+</suite> <!-- CustomSuite -->
